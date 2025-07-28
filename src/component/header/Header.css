@@ -1,0 +1,101 @@
+.header {
+    background: #2d2f34;
+    color: white;
+    padding: 10px 0;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.header-left {
+    flex: 1;
+    display: flex;
+}
+
+.header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+.toggle-btn {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width: 550px) {
+    .header-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    }
+
+    .header-left {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .header-center,
+    .header-right {
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+    }
+
+    .header-center.active,
+    .header-right.active {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-items: center;
+    }
+
+    .nav a {
+    padding: 8px 0;
+    display: block;
+    }
+
+    .toggle-btn {
+    display: block;
+    }
+}

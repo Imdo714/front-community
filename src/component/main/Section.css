@@ -1,0 +1,100 @@
+.main {
+  color: #fff;
+  padding: 40px 0;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* 반응형: 768px 이하에서는 1단으로 */
+@media (max-width: 768px) {
+  .two-column {
+    grid-template-columns: 1fr; /* 한 줄로 */
+  }
+}
+
+.board-section {
+  background: #111827;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
+}
+
+.board-section h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #374151;
+}
+
+.register-btn {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
+}
+
+.register-btn:hover {
+  background-color: #4338ca;
+}
+
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post {
+  padding: 15px;
+  border-bottom: 1px solid #374151;
+}
+
+.post:last-child {
+  border-bottom: none;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.profile-img {
+    font-size: 20px;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.created-at {
+    color: gray;
+    font-size: 12px;
+}
+
+.post-title a:hover {
+  text-decoration: underline;
+}
+
+.post-footer {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #9ca3af;
+  display: flex;
+  gap: 10px;
+}
