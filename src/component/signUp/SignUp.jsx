@@ -24,11 +24,9 @@ const SignUp = () => {
 
         try {
             const result = await requestApi("/join", "POST", formData);
-            console.log(result)
             alert("회원가입 성공!");
             navigate("/login");
         } catch (error) {
-            console.log(error)
             alert(error.message);
         }
     };
