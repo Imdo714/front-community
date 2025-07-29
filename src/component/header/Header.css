@@ -35,11 +35,17 @@
     justify-content: flex-end;
 }
 
-.logo {
+.logo a {
     font-size: 23px;
     font-weight: bold;
-    margin: 0;
+    text-decoration: none;
+    color: white;
 }
+
+.logo a:visited {
+    color: white; 
+}
+
 
 .nav a {
     color: white;
