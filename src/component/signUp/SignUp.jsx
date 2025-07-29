@@ -1,37 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './SignUp.css'
+import SignUpForm from "./SignUpForm";
+import requestApi from "../../api/RequestApi";
 
 const SignUp = () => {
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        email: "",
+        password: "",
+        name: "",
+        userClass: "",
+        userTarget: ""
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const result = await requestApi("/join", "POST", formData);
+            console.log(result)
+            alert("회원가입 성공!");
+            navigate("/login");
+        } catch (error) {
+            console.log(error)
+            alert(error.message);
+        }
+    };
+
     return (
-        <div class="signup-page">
-            <div class="signup-container">
+        <div className="signup-page">
+            <div className="signup-container">
                 <h2>회원가입</h2>
-                <form>
-                <div class="form-group">
-                    <label for="username">아이디</label>
-                    <input type="text" id="username" name="username" required />
-                </div>
-
-                <div class="form-group">
-                    <label for="password">비밀번호</label>
-                    <input type="password" id="password" name="password" required />
-                </div>
-
-                <div class="form-group">
-                    <label for="name">이름</label>
-                    <input type="text" id="name" name="name" required />
-                </div>
-
-                <div class="form-group">
-                    <label for="camp">캠프 출신</label>
-                    <input type="text" id="camp" name="camp" placeholder="예: KH 77기" />
-                </div>
-
-                <button type="submit" class="signup-btn">회원가입</button>
-                </form> 
-
-                <div class="links">
-                <a href="login.html">이미 계정이 있으신가요? 로그인</a>
+                <SignUpForm formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} />
+                <div className="links">
+                    <a href="/login">이미 계정이 있으신가요? 로그인</a>
                 </div>
             </div>
         </div>
