@@ -1,9 +1,23 @@
+import React from "react";
+
 const SocialLogin = () => {
+
+  const kakaoLogin = () => {
+    // const clientId = "d0ba6fdc18314d9028b4e4fd12b5722d";
+    // const redirectUri = "http://localhost:5173/oauth/kakao/redirect";
+    const clientId = import.meta.env.VITE_KAKAO_CLIENT_ID;
+    const redirectUri = import.meta.env.VITE_KAKAO_REDIRECT_URI;
+    const scope = "profile_nickname";
+
+    const kakaoUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}`;
+    window.location.href = kakaoUrl;
+  };
+
   return (
     <div className="social-login">
       <p>SNS 계정으로 로그인</p>
-      <button className="kakao">카카오 로그인</button>
-      <button className="naver">G 구글 로그인</button>
+      <button className="kakao" onClick={kakaoLogin}>카카오 로그인</button>
+      <button className="google">G 구글 로그인</button>
     </div>
   );
 };
