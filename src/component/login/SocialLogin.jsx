@@ -3,8 +3,6 @@ import React from "react";
 const SocialLogin = () => {
 
   const kakaoLogin = () => {
-    // const clientId = "d0ba6fdc18314d9028b4e4fd12b5722d";
-    // const redirectUri = "http://localhost:5173/oauth/kakao/redirect";
     const clientId = import.meta.env.VITE_KAKAO_CLIENT_ID;
     const redirectUri = import.meta.env.VITE_KAKAO_REDIRECT_URI;
     const scope = "profile_nickname";
