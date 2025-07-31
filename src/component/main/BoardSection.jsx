@@ -1,21 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import requestApi from "../../api/RequestApi";
 import './Section.css';
 import Board from './Board';
 
 const BoardSection = () => {
+  const [wakeUpPosts, setWakeUpPosts] = useState([]);
+
+  useEffect(() => {
+    console.log("기상방 데이터 불러올게요");
+    const fetchWakeUpLogs = async () => {
+      try {
+        const res = await requestApi('/wake-up-log?size=3', 'GET');
+        const data = res.data
+        console.log(data);
+
+        const formattedPosts = data.wakeUpLists.map((item) => {
+          return {
+            user: item.userName,
+            image: item.imageUrl,
+            time: item.createDate,
+            content: item.title,
+            likes: item.likeCount,
+            comments: item.commentCount,
+          };
+        });
+        
+        setWakeUpPosts(formattedPosts);
+      } catch (error) {
+        console.error('기상 방 데이터를 불러오지 못했습니다:', error.message);
+      }
+    };
+
+    fetchWakeUpLogs();
+
+  }, []);
+
   const boards = [
     {
       title: '기상 방',
-      posts: [
-        {
-          user: '최강',
-          image: '🟣',
-          time: 29,
-          content: '임최강 방금 자다 일났슴다 ㅋㅋㅋㅋ',
-          likes: 0,
-          comments: 3,
-        },
-      ],
+      posts: wakeUpPosts,
     },
     {
       title: '커뮤니티',

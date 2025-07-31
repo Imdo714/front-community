@@ -4,7 +4,9 @@ const PostItem = ({ user, image, time, content, likes, comments }) => {
     return(
         <li className="post">
             <div className="post-meta">
-                    <div className="profile-img">{image}</div>
+                    <div className="profile-img">
+                        {image ? (<img src={image} alt="user profile" style={{ width: '100px', height: '100px', borderRadius: '50%' }} />) : (<span>🟣</span>)}
+                    </div>
                     <div className="user-name">{user}</div>
                     <div className="created-at">{time}분 전</div>
             </div>
