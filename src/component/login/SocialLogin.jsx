@@ -11,11 +11,15 @@ const SocialLogin = () => {
     window.location.href = kakaoUrl;
   };
 
+  const gogoleLogin = () => {
+    window.location.href = "http://localhost:8080/oauth2/authorization/google";
+  }
+
   return (
     <div className="social-login">
       <p>SNS 계정으로 로그인</p>
       <button className="kakao" onClick={kakaoLogin}>카카오 로그인</button>
-      <button className="google">G 구글 로그인</button>
+      <button className="google" onClick={gogoleLogin}>G 구글 로그인</button>
     </div>
   );
 };
