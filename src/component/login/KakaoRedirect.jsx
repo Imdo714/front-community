@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../useContext/AuthContext"; 
 import axios from "axios";
 
 const KakaoRedirect = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   useEffect(() => {
     const code = new URLSearchParams(window.location.search).get("code");
@@ -19,11 +21,12 @@ const KakaoRedirect = () => {
       )
       .then((res) => {
         console.log("로그인 성공", res.data);
-        localStorage.setItem("accessToken", res.data.data.accessToken);
+        login(res.data.data.accessToken);
         navigate("/");
       })
       .catch((err) => {
         console.error("로그인 실패", err);
+        navigate("/login");
       });
   }, []);
 

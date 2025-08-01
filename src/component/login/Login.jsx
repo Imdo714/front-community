@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../useContext/AuthContext"; 
 import './Login.css'
 import LoginForm from './LoginForm';
 import LoginLinks from './LoginLinks';
@@ -8,6 +9,7 @@ import requestApi from "../../api/RequestApi";
 
 const Login = () => {
     const navigate = useNavigate();
+    const { login } = useAuth();
     const [formData, setFormData] = useState({ email: "", password: "" });
 
     const handleChange = (e) => {
@@ -21,8 +23,7 @@ const Login = () => {
             const result = await requestApi("/login", "POST", formData);
             console.log(result)
             alert("로그인 성공");
-            // 데이터를 브라우저에 반영구적으로 저장브라우저를 종료 후 재시작해도 데이터가 남아있음
-            localStorage.setItem("accessToken", result.data.accessToken);
+            login(result.data.accessToken);
             navigate("/");
         } catch (error) {
             console.error(error);

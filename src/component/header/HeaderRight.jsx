@@ -1,12 +1,26 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from "../../useContext/AuthContext"; 
 
 const HeaderRight = ({ isActive }) => {
+  const { isLoggedIn, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
   return (
     <div className={`header-right ${isActive ? 'active' : ''}`}> 
         <nav className="nav">
-          <Link to="/signUp">회원 가입</Link>
-          <Link to="/login">로그인</Link>
+          {isLoggedIn ? (<a onClick={handleLogout} style={{cursor: "pointer"}}>로그아웃</a>) :
+          (
+          <>
+            <Link to="/signUp">회원 가입</Link>
+            <Link to="/login">로그인</Link>
+          </>
+          )}
         </nav>
     </div>
   );
