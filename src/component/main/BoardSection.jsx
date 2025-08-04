@@ -6,6 +6,7 @@ import Board from './Board';
 const BoardSection = () => {
   const [wakeUpPosts, setWakeUpPosts] = useState([]);
 
+  // 이거 새로 고침할때마다 서버에 요청 보내니깐 이전 값들은 그냥 보여주기? 메모리에 저장해야 할 듯 
   useEffect(() => {
     console.log("기상방 데이터 불러올게요");
     const fetchWakeUpLogs = async () => {
