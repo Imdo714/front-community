@@ -5,7 +5,15 @@ const PostItem = ({ user, image, time, content, likes, comments }) => {
         <li className="post">
             <div className="post-meta">
                     <div className="profile-img">
-                        {image ? (<img src="" alt="user profile" style={{ width: '30px', height: '30px', borderRadius: '50%' }} />) : (<span>🟣</span>)}
+                        {image ? (
+                            <img
+                            src={image}
+                            alt="User profile image"
+                            style={{ width: '30px', height: '30px', borderRadius: '50%' }}
+                            />
+                        ) : (
+                            <span role="img" aria-label="default profile">🟣</span>
+                        )}
                     </div>
                     <div className="user-name">{user}</div>
                     <div className="created-at">{time}분 전</div>

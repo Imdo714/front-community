@@ -5,7 +5,7 @@ const SocialLogin = () => {
   const kakaoLogin = () => {
     const clientId = import.meta.env.VITE_KAKAO_CLIENT_ID;
     const redirectUri = import.meta.env.VITE_KAKAO_REDIRECT_URI;
-    const scope = "profile_nickname";
+    const scope = "profile_nickname account_email";
 
     const kakaoUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}`;
     window.location.href = kakaoUrl;
