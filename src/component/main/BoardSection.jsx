@@ -46,7 +46,7 @@ const BoardSection = () => {
       posts: [
         {
           user: '준식',
-          image: '🟣',
+          image: 'https://community-web-page.s3.ap-northeast-2.amazonaws.com/backend/profile/basic.png',
           time: 11,
           content: '밖에 많이 덥나요??',
           likes: 0,
@@ -54,7 +54,7 @@ const BoardSection = () => {
         },
         {
           user: '뭘보노',
-          image: '🟡',
+          image: 'https://community-web-page.s3.ap-northeast-2.amazonaws.com/backend/profile/basic.png',
           time: 11,
           content: '리엑트 공부는 할만한데 퍼블리싱이 ....',
           likes: 0,
