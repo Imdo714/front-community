@@ -22,8 +22,9 @@ const Login = () => {
         try {
             const result = await requestApi("/login", "POST", formData);
             console.log(result)
+
             alert("로그인 성공");
-            login(result.data.accessToken);
+            login(result.data.accessToken, result.data.userName);
             navigate("/");
         } catch (error) {
             console.error(error);
