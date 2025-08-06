@@ -7,13 +7,16 @@ import Login from './component/login/Login';
 import SignUp from './component/signUp/SignUp';
 import KakaoRedirect from './component/login/KakaoRedirect';
 import BoardForm from './component/boardForm/BoardForm';
+import StarryBackground from './component/starryBackground/StarryBackground';
 
 function App() {
 
   return (
     <AuthProvider>
     <Router>
+      <StarryBackground /> 
       <Header />
+
       <Routes>
         <Route path="/" element={<BoardSection />} />
         <Route path="/login" element={<Login />} />
