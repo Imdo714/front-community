@@ -6,6 +6,7 @@ import BoardSection from './component/main/BoardSection'
 import Login from './component/login/Login';
 import SignUp from './component/signUp/SignUp';
 import KakaoRedirect from './component/login/KakaoRedirect';
+import BoardForm from './component/boardForm/BoardForm';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/oauth/kakao/redirect" element={<KakaoRedirect />} />
+        <Route path="/boardForm" element={<BoardForm />} />
       </Routes>
     </Router>
     </AuthProvider>

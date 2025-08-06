@@ -8,20 +8,23 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
+    const user = localStorage.getItem("userName");
     setIsLoggedIn(!!token);
-    
+    if (user) setUserName(user);
   }, []);
 
   const login = (token, userName) => {
     localStorage.setItem("accessToken", token);
+    localStorage.setItem("userName", userName); 
     setIsLoggedIn(true);
     setUserName(userName);
   };
 
   const logout = () => {
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("userName");
     setIsLoggedIn(false);
-    setUser(null);
+    setUserName(null);
   };
 
   return (
