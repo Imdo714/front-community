@@ -36,7 +36,8 @@
     font-size: 1.1rem;
     line-height: 1.6;
     color: #374151;
-    margin-bottom: 40px;
+    word-break: break-all;
+    white-space: pre-line;
 }
 
 .boardDetail-btn-actions {
@@ -65,7 +66,7 @@
 
 .divider {
     border-top: 1px solid #d1d5db;
-    margin: 40px 0;
+    margin: 10px 0;
 }
 
 .comments-section {

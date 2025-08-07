@@ -86,7 +86,7 @@ const WakeUpDetail = () => {
     return (
         <div className="board-detail-container">
             <BoardDetail detailBoard={detailWakeUp} />
-            <hr className="divider" />
+            <div className="divider" />
             <CommentForm onAddComment={handleAddComment} />
             <CommentList
                 comments={comments}
