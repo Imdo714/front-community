@@ -8,6 +8,7 @@ import SignUp from './component/signUp/SignUp';
 import KakaoRedirect from './component/login/KakaoRedirect';
 import BoardForm from './component/boardForm/BoardForm';
 import StarryBackground from './component/starryBackground/StarryBackground';
+import BoardPage from './component/boardDetail/BoardPage';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/oauth/kakao/redirect" element={<KakaoRedirect />} />
         <Route path="/boardForm" element={<BoardForm />} />
+        <Route path="/boardDetail" element={<BoardPage />} />
       </Routes>
     </Router>
     </AuthProvider>
