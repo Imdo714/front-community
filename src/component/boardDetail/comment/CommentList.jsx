@@ -6,9 +6,11 @@ const CommentList = ({ comments, onEdit, onDelete }) => {
     <ul className="comment-list">
       {comments.map((comment) => (
         <CommentItem
-          key={comment.id}
-          author={comment.author}
+          key={comment.commentId}
+          communtUserProfile={comment.communtUserProfile}
+          communtUserName={comment.communtUserName}
           content={comment.content}
+          createDate={comment.createDate}
           onEdit={() => onEdit(comment.id)}
           onDelete={() => onDelete(comment.id)}
         />

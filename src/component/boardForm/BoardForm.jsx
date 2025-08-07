@@ -9,6 +9,7 @@ const BoardForm = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const title = location.state.title;
+    const boardType = location.state.boardType;
 
     const [form, setForm] = useState({
         title: '',
@@ -47,8 +48,8 @@ const BoardForm = () => {
 
                 const res = await requestApi('/wake-up-log', 'POST', formData);
                 console.log(res);
-                // 게시물 올리면 wakeUpId가 올라오는데 이거 리다렉트 시켜야 함 
-                
+                navigate(`/${boardType}/${res.data.wakeUpId}`);
+
             } catch (error) {
                 console.error('에러:', error.message);
                 if(error.message == '오늘은 이미 게시물을 작성했습니다.'){

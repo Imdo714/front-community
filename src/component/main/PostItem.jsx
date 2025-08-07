@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const PostItem = ({ user, image, time, content, likes, comments }) => {
+const PostItem = ({ id, boardType, userName, image, time, content, likes, comments }) => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(`/${boardType}/${id}`);
+    };
+
     return(
-        <li className="post">
+        <li className="post" onClick={ handleClick }>
             <div className="post-meta">
                     <div className="profile-img">
                         {image ? (
@@ -15,7 +22,7 @@ const PostItem = ({ user, image, time, content, likes, comments }) => {
                             <span role="img" aria-label="default profile">🟣</span>
                         )}
                     </div>
-                    <div className="user-name">{user}</div>
+                    <div className="user-name">{userName}</div>
                     <div className="created-at">{time}분 전</div>
             </div>
 

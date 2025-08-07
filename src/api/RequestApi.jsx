@@ -2,9 +2,6 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_SERVER,
-  // headers: {
-  //   "Content-Type": "application/json",
-  // },
 });
 
 // 매 요청마다 accessToken을 Authorization 헤더에 자동으로 추가
@@ -34,17 +31,24 @@ const requestApi = async (url, method = "GET", data = null) => {
 
         return response.data; 
     } catch (error) {
+        const status = error.response?.status;
         const rawMessage = error.message;
-        console.log(rawMessage);
+        const serverMessage = error.response?.data?.message;
 
-        // 서버 응답 없을 시
+        console.log("에러 상태 코드:", status);
+        console.log("서버 메시지:", serverMessage);
+        console.log("에러 전체:", error);
+
+
         if (rawMessage === "Network Error" || !error.response) {
-          throw new Error("서버에 연결할 수 없습니다. 잠시 후 다시 시도해 주세요.");
+          alert("서버에 연결할 수 없습니다. 잠시 후 다시 시도해 주세요.");
+        } else if (status === 401) {
+          alert(serverMessage || "로그인이 필요합니다.");
+        } else if (status === 403) {
+          alert(serverMessage || "접근 권한이 없습니다.");
+        } else {
+          throw new Error(rawMessage);
         }
-
-        // 서버가 에러 응답한 경우
-        const message = error.response?.data?.message || "알 수 없는 서버 오류입니다.";
-        throw new Error(message);
     }
 };
 

@@ -17,12 +17,13 @@ const BoardSection = () => {
 
         const formattedPosts = data.wakeUpLists.map((item) => {
           return {
-            user: item.userName,
-            image: item.imageUrl,
-            time: item.createDate,
-            content: item.title,
-            likes: item.likeCount,
-            comments: item.commentCount,
+            id : item.wakeUpId,
+            userName : item.userName,
+            image : item.imageUrl,
+            time : item.createDate,
+            content : item.title,
+            likes : item.likeCount,
+            comments : item.commentCount,
           };
         });
         
@@ -36,6 +37,11 @@ const BoardSection = () => {
 
   }, []);
 
+  const boardTypeMap = {
+    '기상 방': 'wakeUp',
+    '커뮤니티': 'community',
+  };
+
   const boards = [
     {
       title: '기상 방',
@@ -45,7 +51,8 @@ const BoardSection = () => {
       title: '커뮤니티',
       posts: [
         {
-          user: '준식',
+          id : 1,
+          userName: '준식',
           image: 'https://community-web-page.s3.ap-northeast-2.amazonaws.com/backend/profile/basic.png',
           time: 11,
           content: '밖에 많이 덥나요??',
@@ -53,7 +60,8 @@ const BoardSection = () => {
           comments: 1,
         },
         {
-          user: '뭘보노',
+          id : 2,
+          userName: '뭘보노',
           image: 'https://community-web-page.s3.ap-northeast-2.amazonaws.com/backend/profile/basic.png',
           time: 11,
           content: '리엑트 공부는 할만한데 퍼블리싱이 ....',
@@ -68,7 +76,8 @@ const BoardSection = () => {
     <main className="main container">
         <div className="container two-column">
             {boards.map((board, idx) => (
-                <Board key={idx} title={board.title} posts={board.posts} />
+                <Board key={idx} title={board.title} posts={board.posts}
+                  boardType={boardTypeMap[board.title]} />
             ))}
         </div>
     </main>

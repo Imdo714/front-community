@@ -6,13 +6,13 @@ import CommentList from './comment/CommentList';
 
 const BoardPage = () => {
     const [comments, setComments] = useState([
-        { id: 1, author: '홍길동', content: '좋은 글 감사합니다!' },
+        { id: 1, communtUserProfile: "https://community-web-page.s3.ap-northeast-2.amazonaws.com/backend/profile/basic.png", communtUserName: '홍길동', content: '좋은 글 감사합니다!' },
     ]);
 
     const handleAddComment = (text) => {
         const newComment = {
         id: Date.now(),
-        author: '익명',
+        communtUserName: '익명',
         content: text,
         };
         setComments([newComment, ...comments]);
@@ -35,14 +35,14 @@ const BoardPage = () => {
 
     return (
         <div className="board-detail-container">
-        <BoardDetail />
-        <hr className="divider" />
-        <CommentForm onAddComment={handleAddComment} />
-        <CommentList
-            comments={comments}
-            onEdit={handleEditComment}
-            onDelete={handleDeleteComment}
-        />
+            <BoardDetail />
+            <hr className="divider" />
+            <CommentForm onAddComment={handleAddComment} />
+            <CommentList
+                comments={comments}
+                onEdit={handleEditComment}
+                onDelete={handleDeleteComment}
+            />
         </div>
     );
 }

@@ -1,15 +1,26 @@
 import React from "react";
 
-const BoardDetail = () => {
+const BoardDetail = ({ detailBoard }) => {
     return(
         <div className="post-detail">
-            <div className="boardDetail-title">게시물 제목입니다 ✨</div>
-            
-            <div className="boardDetail-content">
-                본문 내용입니다. 여기에 게시글 설명이 들어갑니다.
+            <div className="boardDetail-header">
+                <div className="boardDetail-title">{detailBoard.title}</div>
+
+                <div className="boardDetail-btn-actions">
+                    <button className="boardDetail-edit-btn">수정</button>
+                    <button className="boardDetail-delete-btn">삭제</button>
+                </div>
             </div>
 
-            <img src="https://community-web-page.s3.ap-northeast-2.amazonaws.com/backend/profile/basic.png" className="boardDetail-image" alt="Post" />
+            <div className="boardDetail-content">{detailBoard.content}</div>
+
+            {detailBoard.imageUrl && (
+                <img
+                src={detailBoard.imageUrl}
+                className="boardDetail-image"
+                alt="detailBoard"
+                />
+            )}
         </div>
     )
 }
