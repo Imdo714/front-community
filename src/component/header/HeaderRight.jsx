@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from "../../useContext/AuthContext"; 
 
 const HeaderRight = ({ isActive }) => {
-  const { isLoggedIn, userName, logout } = useAuth();
+  const { isLoggedIn, userInfo, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -17,7 +17,7 @@ const HeaderRight = ({ isActive }) => {
           {isLoggedIn ? 
           (
             <>
-              <span style={{ marginRight: "10px" }}>{ userName }님</span>
+              <span style={{ marginRight: "10px" }}>{ userInfo.name }님</span>
               <a onClick={handleLogout} style={{cursor: "pointer"}}>로그아웃</a>
             </>
           ) : (

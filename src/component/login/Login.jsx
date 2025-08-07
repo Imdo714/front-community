@@ -24,7 +24,7 @@ const Login = () => {
             console.log(result)
 
             alert("로그인 성공");
-            login(result.data.accessToken, result.data.userName);
+            login(result.data.accessToken, result.data.userName, result.data.userId);
             navigate("/");
         } catch (error) {
             console.error(error);

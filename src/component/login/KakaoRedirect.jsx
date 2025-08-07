@@ -21,7 +21,7 @@ const KakaoRedirect = () => {
       )
       .then((res) => {
         console.log("로그인 성공", res.data);
-        login(res.data.data.accessToken, res.data.data.userName);
+        login(res.data.data.accessToken, res.data.data.userName, res.data.data.userId);
         navigate("/");
       })
       .catch((err) => {

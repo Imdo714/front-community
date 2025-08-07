@@ -52,12 +52,6 @@ const BoardForm = () => {
 
             } catch (error) {
                 console.error('에러:', error.message);
-                if(error.message == '오늘은 이미 게시물을 작성했습니다.'){
-                    alert(error.message);
-                } else {
-                    alert('서버에 연결할 수 없습니다.');
-                }
-                
                 navigate("/")
             }
         };
