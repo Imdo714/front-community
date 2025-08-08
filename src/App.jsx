@@ -11,7 +11,6 @@ import StarryBackground from './component/starryBackground/StarryBackground';
 import WakeUpDetail from './pages/board/WakeUpDetail';
 import CommunityDetail from './pages/board/CommunityDetail';
 
-import BoardPage from './component/boardDetail/BoardPage';
 
 function App() {
 
@@ -31,7 +30,6 @@ function App() {
         <Route path="/wakeUp/:id" element={<WakeUpDetail />} />
         <Route path="/community/:id" element={<CommunityDetail />} />
 
-        <Route path="/boardDetail/:id" element={<BoardPage />} />
       </Routes>
     </Router>
     </AuthProvider>

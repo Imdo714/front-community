@@ -1,25 +1,25 @@
 import React from 'react';
 
-const CommentItem = ({ communtUserProfile, communtUserName, content, createDate, onEdit, onDelete }) => {
+const CommentItem = ({ author, date, content }) => {
   return (
-    <li className="comment">
-      <div className="comment-header">
-        <div className="comment-author">
-          <img 
-            src={communtUserProfile || 'https://community-web-page.s3.ap-northeast-2.amazonaws.com/backend/profile/basic.png'} 
-            alt="프로필" 
-            className="comment-profile-image"
-          />
-          {communtUserName} | {createDate}
-        </div>
+      <div className="comment-item">
 
-        <div className="comment-actions">
-          <button onClick={onEdit}>수정</button>
-          <button onClick={onDelete}>삭제</button>
-        </div>
+        <img class="comment-profile" src="https://community-web-page.s3.ap-northeast-2.amazonaws.com/backend/profile/basic.png" alt="프로필 이미지" />
+
+        <div class="comment-body">
+              <div class="comment-header">
+                <span class="comment-author">{author}</span>
+                <span class="comment-date">{date}</span>
+              </div>
+
+              <p>{content}</p>
+
+              <div class="comment-actions">
+                <button>수정</button>
+                <button>삭제</button>
+              </div>
+          </div>
       </div>
-      <div className="comment-content">{content}</div>
-    </li>
   );
 };
 
