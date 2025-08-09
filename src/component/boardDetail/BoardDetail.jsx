@@ -1,7 +1,8 @@
 import React from "react";
 import { useAuth } from "../../useContext/AuthContext";
+import LikeButton from "../detailBoard/LikeButton";
 
-const BoardDetail = ({ detailBoard }) => {
+const BoardDetail = ({ boardId, detailBoard }) => {
     const { userInfo } = useAuth();
     const isOwner = detailBoard.writeUserId === userInfo?.id;
 
@@ -26,10 +27,16 @@ const BoardDetail = ({ detailBoard }) => {
             <p class="post-content">
                 {detailBoard.content}
             </p>
+            
+            {detailBoard.imageUrl && (
+                <img class="post-image" src={detailBoard.imageUrl} alt="게시물 이미지" />
+            )}
 
-            <button class="post-like-btn">
-            👍 좋아요 <span class="like-count">{detailBoard.likesCount}</span>
-            </button>
+            <LikeButton logId={boardId} 
+                        likesCount={detailBoard.likesCount} 
+                        liked={detailBoard.liked} 
+            />
+
         </section>
     )
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './SignUp.css'
 import SignUpForm from "./SignUpForm";
-import requestApi from "../../api/RequestApi";
+import requestApi from "../../../api/RequestApi";
 
 const SignUp = () => {
     const navigate = useNavigate();

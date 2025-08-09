@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../useContext/AuthContext"; 
+import { useAuth } from "../../../../useContext/AuthContext"; 
 import axios from "axios";
 
 const KakaoRedirect = () => {
@@ -24,8 +24,9 @@ const KakaoRedirect = () => {
         login(res.data.data.accessToken, res.data.data.userName, res.data.data.userId);
         navigate("/");
       })
-      .catch((err) => {
-        console.error("로그인 실패", err);
+      .catch((error) => {
+        console.error("로그인 실패", error);
+        alert(error.message)
         navigate("/login");
       });
   }, []);

@@ -7,7 +7,7 @@ const Board = ({ title, posts, boardType }) => {
         <section className="board-section">
             <div className="board-header">
                 <h2 style={{color: 'white'}}>{title}</h2>
-                <Link to="/boardForm" state={{ title, boardType }} className="register-btn">등록</Link>
+                <Link to="/create-board" state={{ title, boardType }} className="register-btn">등록</Link>
             </div>
             <PostList posts={posts} boardType={boardType} />
         </section>

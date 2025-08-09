@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
-import './BoardForm.css'
-import InputField from "./InputField";
-import FileUploader from "./FileUploader";
+import './CreateBoard.css';
+import InputField from "../../component/createBoard/InputField";
+import FileUploader from "../../component/createBoard/FileUploader";
 import requestApi from "../../api/RequestApi";
 
-const BoardForm = () => {
+
+const CreateBoard = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const title = location.state.title;
@@ -77,4 +78,4 @@ const BoardForm = () => {
     )
 }
 
-export default BoardForm;
+export default CreateBoard;

@@ -55,11 +55,11 @@ const WakeUpDetail = () => {
         const axiosDetailWakeUp = async () => {
             try {
                 const res = await requestApi(`/wake-up-log/${id}`, 'GET');
-                // console.log(res);
+                console.log(res.data)
                 setDetailWakeUps(res.data);
 
             } catch (error) {
-                alert("게시글 불러오기 실패했습니다.");
+                alert(error.message || "게시글 불러오기 실패했습니다.");
                 navigate("/")
             }
         }
@@ -72,7 +72,7 @@ const WakeUpDetail = () => {
             <BoardDetailSide />
             
             <main class="main-section">
-                <BoardDetail detailBoard={detailWakeUp} />
+                <BoardDetail boardId={id} detailBoard={detailWakeUp} />
                 <Comment />
             </main>
             

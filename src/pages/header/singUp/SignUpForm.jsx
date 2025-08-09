@@ -1,5 +1,5 @@
 import React from "react";
-import FormInput from "./FormInput";
+import FormInput from "../../../component/header/signUp/FormInput";
 
 const SignUpForm = ({ formData, handleChange, handleSubmit }) => (
     <form onSubmit={handleSubmit}>

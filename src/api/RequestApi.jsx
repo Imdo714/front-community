@@ -39,16 +39,21 @@ const requestApi = async (url, method = "GET", data = null) => {
         console.log("서버 메시지:", serverMessage);
         console.log("에러 전체:", error);
 
+        let message;
 
         if (rawMessage === "Network Error" || !error.response) {
-          alert("서버에 연결할 수 없습니다. 잠시 후 다시 시도해 주세요.");
+            message = "서버에 연결할 수 없습니다. 잠시 후 다시 시도해 주세요.";
         } else if (status === 401) {
-          alert(serverMessage || "로그인이 필요합니다.");
+            message = serverMessage || "로그인이 필요합니다.";
         } else if (status === 403) {
-          alert(serverMessage || "접근 권한이 없습니다.");
+            message = serverMessage || "접근 권한이 없습니다.";
+        } else if (status === 409) {
+            message = serverMessage || "잘못된 요청입니다.";
         } else {
-          throw new Error(rawMessage);
+            message = serverMessage || "알 수 없는 오류가 발생했습니다.";
         }
+        
+        throw new Error(message);
     }
 };
 

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../useContext/AuthContext"; 
+import { useAuth } from "../../../useContext/AuthContext"; 
 import './Login.css'
-import LoginForm from './LoginForm';
+import LoginForm from '../../../component/header/login/LoginForm';
 import LoginLinks from './LoginLinks';
-import SocialLogin from './SocialLogin';
-import requestApi from "../../api/RequestApi";
+import SocialLogin from '../../../component/header/login/SocialLogin';
+import requestApi from "../../../api/RequestApi";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -27,7 +27,7 @@ const Login = () => {
             login(result.data.accessToken, result.data.userName, result.data.userId);
             navigate("/");
         } catch (error) {
-            console.error(error);
+            console.log(error);
             alert(error.message || "로그인 실패");
         }
     };

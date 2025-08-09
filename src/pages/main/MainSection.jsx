@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import requestApi from "../../api/RequestApi";
 import './Section.css';
-import Board from './Board';
-import SideBar from "./side/SideBar";
+import Board from '../../component/main/Board';
+import SideBar from "./mainSide/SideBar";
 
-const BoardSection = () => {
+const MainSection = () => {
   const [wakeUpPosts, setWakeUpPosts] = useState([]);
 
   // 이거 새로 고침할때마다 서버에 요청 보내니깐 이전 값들은 그냥 보여주기? 메모리에 저장해야 할 듯 
@@ -93,4 +93,4 @@ const BoardSection = () => {
   );
 };
 
-export default BoardSection;
+export default MainSection;

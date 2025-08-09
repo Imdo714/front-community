@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import './Header.css'
-import HeaderLeft from "./HeaderLeft ";
-import HeaderCenter from './HeaderCenter';
-import HeaderRight from './HeaderRight';
+import HeaderLeft from "../../component/header/HeaderLeft ";
+import HeaderCenter from '../../component/header/HeaderCenter';
+import HeaderRight from '../../component/header/HeaderRight';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
