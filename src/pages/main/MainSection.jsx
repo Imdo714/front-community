@@ -7,14 +7,11 @@ import SideBar from "./mainSide/SideBar";
 const MainSection = () => {
   const [wakeUpPosts, setWakeUpPosts] = useState([]);
 
-  // 이거 새로 고침할때마다 서버에 요청 보내니깐 이전 값들은 그냥 보여주기? 메모리에 저장해야 할 듯 
   useEffect(() => {
-    console.log("기상방 데이터 불러올게요");
     const fetchWakeUpLogs = async () => {
       try {
         const res = await requestApi('/wake-up-log?size=3', 'GET');
         const data = res.data
-        console.log(data);
 
         const formattedPosts = data.wakeUpLists.map((item) => {
           return {
@@ -77,7 +74,7 @@ const MainSection = () => {
 
   return (
     <main className="main container">
-      <div class="layout-wrapper">
+      <div className="layout-wrapper">
 
         <SideBar />
 

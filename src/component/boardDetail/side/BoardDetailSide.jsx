@@ -9,9 +9,9 @@ const BoardDetailSide = () => {
             <div className="sidebar-section">
             <h4>캐티 회원 최신 글</h4>
             <ul>
-                <li>🧑‍💻 캐티 <span>181</span></li>
-                <li>🧑‍💻 길가다주웠어 <span>164</span></li>
-                <li>🧑‍💻 sbroh <span>117</span></li>
+                <li> 오늘 할일 <span>2025-08-10</span></li>
+                <li>기상했음 <span>2025-08-09</span></li>
+                <li>숏튜브 <span>2025-08-08</span></li>
             </ul>
             </div>
         </aside>

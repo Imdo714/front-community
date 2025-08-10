@@ -83,11 +83,11 @@ const Quote = () => {
     return(
         <div className="ad-box">
             <div className="quote-title">💡 오늘의 명언</div>
-            <p class="quote-text">
+            <p className="quote-text">
                 "{quote.text}"
             </p>
             <p className="quote-author">– {quote.author} –</p>
-            <button onClick={changeQuote} class="ad-button">Try Now</button>
+            <button onClick={changeQuote} className="ad-button">Try Now</button>
         </div>
     )
 }
