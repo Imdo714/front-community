@@ -44,7 +44,7 @@ import requestApi from '../../api/RequestApi';
 import '../../component/boardDetail/BoardDetail.css';
 import BoardDetailSide from '../../component/boardDetail/side/BoardDetailSide';
 import BoardDetail from '../../component/boardDetail/BoardDetail';
-import Comment from '../../component/boardDetail/comment/Comment';
+import Comment from '../../component/comment/Comment';
 
 const WakeUpDetail = () => {
     const navigate = useNavigate();
@@ -78,12 +78,12 @@ const WakeUpDetail = () => {
     };
 
     return (
-        <div class="layout-container">
+        <div className="layout-container">
             <BoardDetailSide />
             
-            <main class="main-section">
+            <main className="main-section">
                 <BoardDetail boardId={id} detailBoard={detailWakeUp} onUpdate={handleUpdate} />
-                <Comment />
+                <Comment boardId={id} />
             </main>
             
         </div>

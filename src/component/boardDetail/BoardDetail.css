@@ -285,6 +285,18 @@
   color: gray;
 }
 
+.edit-comment-textarea{
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    resize: vertical;
+    outline: none;
+}
+
 .comment-actions button {
   background: none;
   border: none;

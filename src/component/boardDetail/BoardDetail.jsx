@@ -11,11 +11,11 @@ const BoardDetail = ({ boardId, detailBoard, onUpdate }) => {
     const [editContent, setEditContent] = useState("");
 
     useEffect(() => {
-        if (detailBoard) {
+        if (detailBoard && isEditing) {
             setEditTitle(detailBoard.title || "");
             setEditContent(detailBoard.content || "");
         }
-    }, [detailBoard]);
+    }, [detailBoard, isEditing]);
 
     const handleSave = () => {
         onUpdate?.({

@@ -31,9 +31,9 @@ import React, { useState } from 'react';
 const CommentForm = () => {
 
   return (
-    <div class="comment-form-section">
+    <div className="comment-form-section">
         <textarea className='comment-form-textarea'  placeholder="댓글을 입력하세요..."></textarea>
-        <button class="comment-submit-btn">댓글 작성</button>
+        <button className="comment-submit-btn">댓글 작성</button>
     </div>
   );
 };
