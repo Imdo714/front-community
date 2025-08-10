@@ -106,6 +106,41 @@
     background-color: #fceae9;
 }
 
+.edit-title-input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;   
+    outline: none;
+}
+
+.edit-title-input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 4px rgba(74, 144, 226, 0.3);
+}
+
+.edit-content-textarea {
+    width: 100%;               
+    min-height: 200px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    resize: vertical;         
+    outline: none;
+}
+
+.edit-content-textarea:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 4px rgba(74, 144, 226, 0.3);
+}
+
 .post-btn-actions button {
     margin-left: 8px;
     padding: 6px 12px;

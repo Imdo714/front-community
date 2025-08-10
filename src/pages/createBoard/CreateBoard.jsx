@@ -53,7 +53,7 @@ const CreateBoard = () => {
 
             } catch (error) {
                 console.error('에러:', error.message);
-                navigate("/")
+                alert(error.message)
             }
         };
 

@@ -67,12 +67,22 @@ const WakeUpDetail = () => {
         axiosDetailWakeUp();
     }, [id]);
 
+    const handleUpdate = async (updatedData) => {
+        try {
+            await requestApi(`/wake-up-log/${id}`, 'PATCH', updatedData);
+            setDetailWakeUps(updatedData);
+            alert("게시글이 수정되었습니다.");
+        } catch (error) {
+            alert(error.message || "게시글 수정 실패했습니다.");
+        }
+    };
+
     return (
         <div class="layout-container">
             <BoardDetailSide />
             
             <main class="main-section">
-                <BoardDetail boardId={id} detailBoard={detailWakeUp} />
+                <BoardDetail boardId={id} detailBoard={detailWakeUp} onUpdate={handleUpdate} />
                 <Comment />
             </main>
             

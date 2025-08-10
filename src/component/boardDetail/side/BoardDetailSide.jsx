@@ -2,11 +2,11 @@ import React from "react";
 
 const BoardDetailSide = () => {
     return(
-        <aside class="sidebar">
-            <div class="sidebar-section">
+        <aside className="sidebar">
+            <div className="sidebar-section">
             사이드 배너 1
             </div>
-            <div class="sidebar-section">
+            <div className="sidebar-section">
             <h4>캐티 회원 최신 글</h4>
             <ul>
                 <li>🧑‍💻 캐티 <span>181</span></li>
