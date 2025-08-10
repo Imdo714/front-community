@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../../useContext/AuthContext";
 import LikeButton from "../detailBoard/LikeButton";
 
-const BoardDetail = ({ boardId, detailBoard, onUpdate }) => {
+const BoardDetail = ({ boardId, detailBoard, onUpdate, onDelete }) => {
     const { userInfo } = useAuth();
     const isOwner = detailBoard.writeUserId === userInfo?.id;
 
@@ -40,7 +40,7 @@ const BoardDetail = ({ boardId, detailBoard, onUpdate }) => {
                         {!isEditing ? (
                             <>
                                 <button className="post-edit-btn" onClick={() => setIsEditing(true)}>수정</button>
-                                <button className="post-delete-btn">삭제</button>
+                                <button className="post-delete-btn" onClick={() => onDelete()}>삭제</button>
                             </>
                         ) : (
                             <>

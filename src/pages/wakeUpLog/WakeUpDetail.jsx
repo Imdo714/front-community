@@ -77,12 +77,25 @@ const WakeUpDetail = () => {
         }
     };
 
+    const handelDelete = async () => {
+        const confirmed = window.confirm("진짜 삭제하실건가요?");
+        if (!confirmed) return; 
+
+        try {
+            await requestApi(`/wake-up-log/${id}`, 'DELETE');
+            alert("게시글이 삭제되었습니다.");
+            navigate("/")
+        } catch (error) {
+            alert(error.message || "게시글 삭제 실패했습니다.");
+        }
+    };
+
     return (
         <div className="layout-container">
             <BoardDetailSide />
             
             <main className="main-section">
-                <BoardDetail boardId={id} detailBoard={detailWakeUp} onUpdate={handleUpdate} />
+                <BoardDetail boardId={id} detailBoard={detailWakeUp} onUpdate={handleUpdate} onDelete={handelDelete} />
                 <Comment boardId={id} />
             </main>
             
