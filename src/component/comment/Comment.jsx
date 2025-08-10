@@ -10,7 +10,7 @@ const Comment = ({ boardId }) => {
         const axiosDetailWakeUpComment = async () => {
             try {
                 const res = await requestApi(`/wake-up-log/${boardId}/comment`, 'GET');
-                const rawComments = res.data.wakeUpCommentLists;
+                const rawComments = res.data.wakeUpComments;
                 console.log(res);
 
                 const formattedComments = rawComments.map((c) => ({
@@ -25,7 +25,8 @@ const Comment = ({ boardId }) => {
                 setComments(formattedComments);
 
             } catch (error) {
-                alert("댓글 불러오기 실패했습니다.");
+                console.log(error)
+                alert(error.message || "댓글 불러오기 실패했습니다.");
             }
         }
 
@@ -61,9 +62,26 @@ const Comment = ({ boardId }) => {
         }
     };
 
+    const addComment = async (content) => {
+        try {
+        const res = await requestApi(`/wake-up-log/${boardId}/comment`, 'POST', { content });
+        const newComment = {
+            commentId: res.data.commentId,
+            commentUserId: res.data.userId,
+            commentUserProfile: res.data.imageUrl,
+            commentUserName: res.data.userName,
+            content: res.data.content,
+            createDate: res.data.createDate,
+        };
+        setComments(prev => [newComment, ...prev]);
+        } catch (error) {
+        alert('댓글 작성 실패했습니다.');
+        }
+    };
+
     return(
         <section className="comments-section">
-            <CommentForm />
+            <CommentForm onAddComment={addComment} />
             <CommentList comments={comments} boardId={boardId} 
                 onUpdate={handleUpdateComment} onDelete={handleDelete}/>
         </section>
