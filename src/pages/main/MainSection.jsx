@@ -48,24 +48,24 @@ const MainSection = () => {
     {
       title: '커뮤니티',
       posts: [
-        {
-          id : 1,
-          userName: '준식',
-          image: 'https://community-web-page.s3.ap-northeast-2.amazonaws.com/backend/profile/basic.png',
-          time: 11,
-          content: '밖에 많이 덥나요??',
-          likes: 0,
-          comments: 1,
-        },
-        {
-          id : 2,
-          userName: '뭘보노',
-          image: 'https://community-web-page.s3.ap-northeast-2.amazonaws.com/backend/profile/basic.png',
-          time: 11,
-          content: '리엑트 공부는 할만한데 퍼블리싱이 ....',
-          likes: 0,
-          comments: 1,
-        },
+        // {
+        //   id : 1,
+        //   userName: '준식',
+        //   image: 'https://community-web-page.s3.ap-northeast-2.amazonaws.com/backend/profile/basic.png',
+        //   time: 11,
+        //   content: '밖에 많이 덥나요??',
+        //   likes: 0,
+        //   comments: 1,
+        // },
+        // {
+        //   id : 2,
+        //   userName: '뭘보노',
+        //   image: 'https://community-web-page.s3.ap-northeast-2.amazonaws.com/backend/profile/basic.png',
+        //   time: 11,
+        //   content: '리엑트 공부는 할만한데 퍼블리싱이 ....',
+        //   likes: 0,
+        //   comments: 1,
+        // },
       ],
     },
 

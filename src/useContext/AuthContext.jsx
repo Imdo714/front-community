@@ -2,10 +2,15 @@ import { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
 
+export let globalLogout = () => {};
+
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 토큰 저장 유무
   const [userInfo, setUserInfo] = useState(null); // 회원 정보: 이름, Id
 
+  useEffect(() => {
+    globalLogout = logout; // 전역 함수에 실제 logout 함수 할당
+  }, []);
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");

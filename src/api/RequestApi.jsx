@@ -1,4 +1,5 @@
 import axios from "axios";
+import { globalLogout } from "../useContext/AuthContext";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_SERVER,
@@ -14,6 +15,21 @@ api.interceptors.request.use(
     return config;
   },
   (error) => {
+    return Promise.reject(error);
+  }
+);
+
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    const status = error.response?.status;
+    const serverMessage = error.response?.data?.message;
+
+    if (status === 401 && serverMessage === "토큰이 만료되었습니다.") {
+      globalLogout();
+      window.location.href = "/login";
+    }
+
     return Promise.reject(error);
   }
 );
